@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">TpTiendaMobile</string>
+    <string name="title_home">CastelArt</string>
+    <string name="title_dashboard">Ofertas</string>
+    <string name="title_notifications">La Empresa</string>
+    <string name="about_us">¿Quiénes somos?</string>
+    <string name="contact">Contactar</string>
+    <string name="free_shipping">Envío gratis</string>
+    <string name="buy_button">Comprar</string>
+    <string name="name">Nombre completo</string>
+    <string name="mail">Correo electrónico</string>
+    <string name="address">Dirección</string>
+    <string name="complete_data">Completá tus datos</string>
+    <string name="price">Precio</string>
+
+    <string name="price_formatter">$ %1$s</string>
+
+
+</resources>

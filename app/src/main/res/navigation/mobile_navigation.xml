@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.tptiendamobile.ui.offers.OffersFragment"
+        android:name="com.example.tptiendamobile.ui.artist.ArtistFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_offers" />
+        tools:layout="@layout/fragment_artist" />
 
     <fragment
         android:id="@+id/navigation_notifications"

@@ -2,6 +2,7 @@ package com.example.tptiendamobile.networking
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.tptiendamobile.model.ApiResponseArtist
 import com.example.tptiendamobile.model.ApiResponseProduct
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,41 +31,24 @@ class Repository(private val api: Api) {
         return liveData
     }
 
-//    fun getEvent(id: Int): MutableLiveData<List<Evento>> {
-//
-//        val liveData = MutableLiveData<List<Evento>>()
-//
-//        api.getEvents(id).enqueue(object : Callback<List<Evento>> {
-//
-//            override fun onResponse(call: Call<List<Evento>>, response: Response<List<Evento>>) {
-//                if (response.isSuccessful && response.body() != null) {
-//                    liveData.value = response.body()
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<List<Evento>>, t: Throwable) {
-//
-//            }
-//
-//        })
-//
-//        return liveData
-//    }
-//
-//    fun sendOrder(pedido: Pedido) {
-//
-//        api.sendOrder(pedido).enqueue(object : Callback<Pedido> {
-//
-//            override fun onResponse(call: Call<Pedido>, response: Response<Pedido>) {
-//                if (response.isSuccessful && response.body() != null) {
-//
-//                }
-//
-//            }
-//
-//            override fun onFailure(call: Call<Pedido>, t: Throwable) {
-//
-//            }
-//        })
-//    }
+    fun getArtist(): LiveData<ApiResponseArtist> {
+
+        val liveData = MutableLiveData<ApiResponseArtist>()
+
+        api.getArtist().enqueue(object : Callback<ApiResponseArtist> {
+            override fun onResponse(call: Call<ApiResponseArtist>, response: Response<ApiResponseArtist>) {
+                if (response.isSuccessful && response.body() != null) {
+                    liveData.value = response.body()
+                }
+            }
+
+            override fun onFailure(call: Call<ApiResponseArtist>, t: Throwable) {
+//                TODO()
+            }
+        })
+
+        return liveData
+    }
+
+
 }

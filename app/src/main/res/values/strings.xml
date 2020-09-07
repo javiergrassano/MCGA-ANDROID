@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">TpTiendaMobile</string>
     <string name="title_home">CastelArt</string>
-    <string name="title_dashboard">Ofertas</string>
-    <string name="title_notifications">La Empresa</string>
+    <string name="title_dashboard">Artistas</string>
+    <string name="title_notifications">El team</string>
     <string name="about_us">¿Quiénes somos?</string>
     <string name="contact">Contactar</string>
     <string name="free_shipping">Envío gratis</string>
@@ -14,6 +14,8 @@
     <string name="price">Precio</string>
 
     <string name="price_formatter">$ %1$s</string>
+
+    <string name="description_company">CastelArt es un espacio para la exhibición, promoción y venta online de arte. Todas las obras poseen garantía y certificado de autenticidad. Contamos con una amplia selección de obras que recorren desde el Arte Clásico al Moderno y Contemporáneo en sus diferentes manifestaciones. Desde Grandes Maestros a destacados Artistas jóvenes. Ofrecemos asesoramiento tanto para coleccionistas como para inversionistas, brindando lo mejor para el diseño de sus espacios.</string>
 
 
 </resources>

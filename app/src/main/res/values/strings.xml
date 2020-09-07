@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TpTiendaMobile</string>
     <string name="title_home">CastelArt</string>
-    <string name="title_dashboard">Ofertas</string>
+    <string name="title_dashboard">Artistas</string>
     <string name="title_notifications">La Empresa</string>
     <string name="about_us">¿Quiénes somos?</string>
     <string name="contact">Contactar</string>

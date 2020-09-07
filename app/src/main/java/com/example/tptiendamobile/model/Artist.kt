@@ -12,4 +12,5 @@ data class Artist(val firstName: String?,
                   val description: String?,
                   val totalProducts: Int?,
                   val id: String?,
+                  val image: String?,
                   val flagImage: String?) : Parcelable

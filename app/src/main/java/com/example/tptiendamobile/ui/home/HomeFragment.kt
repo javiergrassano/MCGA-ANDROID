@@ -3,9 +3,7 @@ package com.example.tptiendamobile.ui.home
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -18,7 +16,7 @@ import com.example.tptiendamobile.ui.detail.ProductDetailActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
-class HomeFragment : Fragment(), ProductListener {
+class HomeFragment : Fragment(R.layout.fragment_home), ProductListener {
 
     private lateinit var tpViewModel: TpViewModel
 
@@ -30,20 +28,30 @@ class HomeFragment : Fragment(), ProductListener {
         }, ActivityOptions.makeSceneTransitionAnimation(requireActivity(), view, "view").toBundle())
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         tpViewModel = activity?.run { ViewModelProviders.of(this).get(TpViewModel::class.java) }
                 ?: throw Exception("Invalid Activity")
 
+        observe()
+        setListener()
 
-        tpViewModel.getProducts().observe(this, Observer {
+    }
+
+    private fun setListener() {
+        swipeRefresh.setOnRefreshListener {
+            observe()
+            swipeRefresh.isRefreshing = false
+        }
+    }
+
+    private fun observe() {
+        tpViewModel.clearLiveData()
+        tpViewModel.getProducts().observe(viewLifecycleOwner, Observer {
             render(it.data)
         })
+
     }
 
     private fun render(data: List<Product>) {

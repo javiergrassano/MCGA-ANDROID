@@ -26,10 +26,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:roundBottomEnd="true"
             app:roundBottomStart="true"
-            app:roundWithOverlayColor="#FAFAFA"
+            app:roundWithOverlayColor="@android:color/white"
             app:roundedCornerRadius="100dp"
             app:roundingBorderColor="@color/colorPrimary"
-            app:roundingBorderWidth="4dp" />
+            app:roundingBorderWidth="2dp" />
 
         <TextView
             android:id="@+id/name"

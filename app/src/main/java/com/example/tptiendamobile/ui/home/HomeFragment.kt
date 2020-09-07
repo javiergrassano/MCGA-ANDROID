@@ -36,7 +36,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductListener {
 
         observe()
         setListener()
-
     }
 
     private fun setListener() {
@@ -47,16 +46,14 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductListener {
     }
 
     private fun observe() {
-        tpViewModel.clearLiveData()
         tpViewModel.getProducts().observe(viewLifecycleOwner, Observer {
             render(it.data)
         })
-
     }
 
     private fun render(data: List<Product>) {
         rvProducts.layoutManager = GridLayoutManager(context, 2)
-        rvProducts.adapter = ProductAdapter(data, this)
+        rvProducts.adapter = ProductAdapter(data.shuffled(), this)
     }
 
 }

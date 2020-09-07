@@ -6,13 +6,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.tptiendamobile.R
 import com.example.tptiendamobile.TpViewModel
 import com.example.tptiendamobile.adapter.ArtistAdapter
 import com.example.tptiendamobile.model.Artist
 import kotlinx.android.synthetic.main.fragment_artist.*
 
-class ArtistFragment : Fragment(R.layout.fragment_artist) {
+class ArtistFragment : Fragment(R.layout.fragment_artist), SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var tpViewModel: TpViewModel
 
@@ -28,25 +29,23 @@ class ArtistFragment : Fragment(R.layout.fragment_artist) {
     }
 
     private fun setListener() {
-        swipeRefresh.setOnRefreshListener {
-
-            observe()
-            swipeRefresh.isRefreshing = false
-        }
+        swipeRefresh.setOnRefreshListener(this)
     }
 
     private fun observe() {
-        tpViewModel.clearLiveData()
         tpViewModel.getArtist().observe(viewLifecycleOwner, Observer {
             render(it.data)
         })
     }
 
     private fun render(data: List<Artist>) {
-
         rvArtist.layoutManager = GridLayoutManager(context, 2)
-        rvArtist.adapter = ArtistAdapter(data)
+        rvArtist.adapter = ArtistAdapter(data.shuffled())
     }
 
+    override fun onRefresh() {
+        observe()
+        swipeRefresh.isRefreshing = false
+    }
 
 }

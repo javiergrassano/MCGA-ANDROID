@@ -1,7 +1,6 @@
 package com.example.tptiendamobile
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.tptiendamobile.model.ApiResponseArtist
 import com.example.tptiendamobile.model.ApiResponseProduct
@@ -26,11 +25,6 @@ class TpViewModel(private val repository: Repository) : ViewModel() {
         }
         return tpApiResponseArtist as LiveData<ApiResponseArtist>
 
-    }
-
-    fun clearLiveData() {
-        tpApiResponseProduct = MutableLiveData()
-        tpApiResponseArtist = MutableLiveData()
     }
 
 }

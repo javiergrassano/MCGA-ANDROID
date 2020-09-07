@@ -36,7 +36,6 @@ class HomeFragment : Fragment(), ProductListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ActivityOptions.makeSceneTransitionAnimation(activity)
 
         tpViewModel = activity?.run { ViewModelProviders.of(this).get(TpViewModel::class.java) }
                 ?: throw Exception("Invalid Activity")
@@ -52,10 +51,6 @@ class HomeFragment : Fragment(), ProductListener {
         rvProducts.adapter = ProductAdapter(data, this)
     }
 
-    override fun onResume() {
-        super.onResume()
-        rvProducts.adapter?.notifyDataSetChanged()
-    }
 }
 
 

@@ -33,30 +33,13 @@ class CheckoutActivity : AppCompatActivity() {
 
     }
 
-    fun render(producto: Product) {
+    private fun render(product: Product) {
 
-        val imageUri = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Gioconda_%28copia_del_Museo_del_Prado_restaurada%29.jpg/1280px-Gioconda_%28copia_del_Museo_del_Prado_restaurada%29.jpg"
-        imageCheckout.setImageURI(imageUri, this)
-        titulo.text = producto.title
-        textView4.text = "$" + producto.price
+
+        imageCheckout.setImageURI(product.image, this)
+        titulo.text = product.title
+        textView4.text = resources.getString(R.string.price_formatter, product.price?.toInt().toString())
 //        productCode.text = "Articulo " + producto.codigo_producto
-
-//        button2.setOnClickListener {
-//            if (validate()) {
-//                tpViewModel.sendOrder(
-//                        Pedido(
-//                                1,
-//                                "0001",
-//                                producto,
-//                                edMail.text.toString(),
-//                                "28/11/2019",
-//                                1,
-//                                1500
-//                        )
-//                )
-//                finish()
-//            }
-//        }
     }
 
     private fun validate(): Boolean {

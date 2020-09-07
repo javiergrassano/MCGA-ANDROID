@@ -34,7 +34,6 @@ class ProductAdapter(private val productList: List<Product>, private val listene
             }
             title.text = product.title
             price.text = holder.price.context.resources.getString(R.string.price_formatter, product.price?.toInt().toString())
-//            artist.text = product.artist.fullName
             card.setOnClickListener {
                 listener.onClick(productList[position], holder.image)
             }
@@ -48,6 +47,5 @@ class ProductAdapter(private val productList: List<Product>, private val listene
         internal val title: TextView = view.findViewById(R.id.title)
         internal val price: TextView = view.findViewById(R.id.price)
         internal val card: CardView = view.findViewById(R.id.card)
-//        internal val artist: TextView = view.findViewById(R.id.artist)
     }
 }
